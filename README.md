@@ -20,8 +20,10 @@ Getting Started:
 
   docker cp /path/to/customerCA.crt cloudhsm:/root/data/
 
-  docker stop cloudhsm
+  docker stop cloudhsm && docker rm cloudhsm
 
+  docker pull walkerk1980/cloudhsm-pkcs11
+  
   docker run -it -d -e CLUSTERID=cluster-5la5cwabs7v -v cloudhsm_data:/root/data --name cloudhsm -e REGION=us-west-2 walkerk1980/cloudhsm-pkcs11 /usr/local/bin/startup.sh
 
 
