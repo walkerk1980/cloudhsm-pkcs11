@@ -6,6 +6,7 @@ RUN /usr/bin/wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Xe
 RUN apt-get update && \
   DEBIAN_FRONTEND=noninteractive apt-get -o Dpkg::Options::="--force-confnew" --assume-yes -y --yes -f install -y \ 
   opensc opensc-pkcs11 \
+  && /opt/cloudhsm/bin/setup_redis \
   && rm -rf /var/lib/apt/lists/*
 ENV CAKEYPASS=Password1
 ENV CASUBJECT=example.com
